@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename ='main_tabs_window_style.css') }}">
+  <script src="{{ url_for('static', filename ='Jquery.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="{{ url_for('static', filename ='main_tabs_window.js') }}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Training_Laptops', this, 'teal')" id="defaultOpen">Training Laptops</button>
+<button class="tablink" onclick="openPage('Our_Training_Laptops', this, 'green')">Our Training Laptops</button>
+<button class="tablink" onclick="openPage('History', this, 'rgb(39, 105, 0)')">History</button>
+<button class="tablink" onclick="openPage('Add_Remove_Laptops', this, 'purple')">Add\Remove Laptops</button>
+
+<div id="Add_Remove_Laptops" class="tabcontent">
+  <h2>Add\Remove Laptops</h2>
+  <p>Here you will be able to Add or Remove Laptops from our training laptops list</p>
+</div>
+
+<div id="Our_Training_Laptops" class="tabcontent">
+  <h2>Our Training Laptops</h2>
+  <p>Here you can see table with all of our laptops information</p>
+  <table>
+  <tr>
+    <th>Training Laptop number</th>
+    <th>Laptop Model</th>
+    <th>Serial Number</th>
+    <th>Available</th>
+    <th>Taken By</th>
+    <th>Return Date</th>
+    <th>Notes</th>
+  </tr>
+  {{ tl_rows | safe }}
+  </table>
+</div>
+
+<div id="Training_Laptops" class="tabcontent">
+  <h2>Training Laptops</h2>
+  <p>Here you can see every laptop we have and it's status</p>
+  <table>
+  <tr>
+    <th>Training Laptop number</th>
+    <th>Laptop Model</th>
+    <th>Taken By</th>
+    <th>Return Date</th>
+    <th>Action</th>
+  </tr>
+    {{ training_laptops_tab | safe }}
+  </table>
+</div>
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click()
+</script>
+<div id="History" class="tabcontent">
+  <h2>History</h2>
+  <p>Here you will be able to see all the loaning history</p>
+  <a href="/download"><h1>Download CSV History Report</h1></a>
+
+</div>
+</body>
+</html>
