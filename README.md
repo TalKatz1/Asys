@@ -2,6 +2,6 @@
 Asset management system
 
 
-user: user \n
-pass: password \n\n\n
+user: user     
+pass: password       
 You need to install Flask (1.1.1)
